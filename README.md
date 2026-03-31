@@ -1,4 +1,4 @@
-# Mini-MVCC：手写数据库多版本并发控制引擎
+# Java-Lite-MVCC：手写数据库多版本并发控制引擎
 
 一个纯 Java 的内存数据库引擎，演示 Undo Log 版本链与 MVCC 快照读，支持 RC 与 RR 两种隔离级别。
 
