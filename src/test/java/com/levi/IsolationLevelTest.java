@@ -1,7 +1,7 @@
 package com.levi;
 
 import com.levi.core.TransactionManager;
-import com.levi.engine.MiniEngine;
+import com.levi.engine.LiteEngine;
 import com.levi.strategy.impl.RCIsolationStrategyImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testRepeatableRead() throws InterruptedException {
-        MiniEngine engine = new MiniEngine(); // 默认 RR
+        LiteEngine engine = new LiteEngine(); // 默认 RR
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
         init.put("age", 18);
@@ -69,7 +69,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testReadCommitted() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         engine.setIsolationStrategy(new RCIsolationStrategyImpl());  // 设置事务隔离级别为RC
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
@@ -118,7 +118,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testDeleteRepeatableRead() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
         init.put("age", 18);
@@ -157,7 +157,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testDeleteReadCommitted() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         engine.setIsolationStrategy(new RCIsolationStrategyImpl());
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
@@ -186,7 +186,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testDeleteRepeatableReadComplexSequence() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
         init.put("age", 18);
@@ -239,7 +239,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testDeleteReadCommittedComplexSequence() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         engine.setIsolationStrategy(new RCIsolationStrategyImpl());
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
@@ -289,7 +289,7 @@ public class IsolationLevelTest {
      */
     @Test
     public void testDeleteRepeatableReadScenario3() throws InterruptedException {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
         Map<String, Object> init = new HashMap<>();
         init.put("name", "Jack");
         init.put("age", 18);

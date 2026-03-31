@@ -1,4 +1,4 @@
-# Mini-MVCC 关系图与架构图
+# Java-Lite-MVCC 关系图与架构图
 
 ## ER 关系图（数据视角）
 
@@ -20,7 +20,7 @@ erDiagram
         long trxId  "最近修改事务ID"
         int  rollPointer FK "指向旧版本的行ID(内存自引用)"
     }
-    MINIENGINE {
+    LITEENGINE {
         map table "Map<id, Row> 当前行作为链表表头"
     }
 
@@ -32,7 +32,7 @@ erDiagram
 
 说明
 - READVIEW.mIds 是“生成时刻”的活跃事务ID集合快照，用于可见性判断
-- ROW.rollPointer 构成 Undo Log 链；MINIENGINE.table 的每个 id 对应“链表表头”（最新版本）
+- ROW.rollPointer 构成 Undo Log 链；LITEENGINE.table 的每个 id 对应“链表表头”（最新版本）
 
 ## 架构关系（类与依赖）
 
@@ -45,7 +45,7 @@ flowchart LR
     end
 
     subgraph Engine
-        ME[MiniEngine]
+        ME[LiteEngine]
     end
 
     subgraph Strategy
@@ -64,7 +64,7 @@ flowchart LR
 ```
 
 要点
-- MiniEngine 通过 IsolationStrategy 获取 ReadView（RC 每次新建，RR 复用首次）
+- LiteEngine 通过 IsolationStrategy 获取 ReadView（RC 每次新建，RR 复用首次）
 - ReadView 使用 TransactionManager 的活跃集与发号器边界进行可见性判断
 - Row 自引用形成版本链；select 顺链回溯到可见版本
 
@@ -84,4 +84,4 @@ flowchart LR
 - 事务管理与活跃集：TransactionManager.java
 - 读视图与可见性：ReadView.java
 - 行对象与隐藏列：Row.java
-- 引擎读写与链回溯：MiniEngine.java
+- 引擎读写与链回溯：LiteEngine.java

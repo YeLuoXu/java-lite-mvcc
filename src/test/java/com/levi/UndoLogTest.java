@@ -2,7 +2,7 @@ package com.levi;
 
 import com.levi.core.Row;
 import com.levi.core.TransactionManager;
-import com.levi.engine.MiniEngine;
+import com.levi.engine.LiteEngine;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class UndoLogTest {
      */
     @Test
     public void testUndoLogChain() {
-        MiniEngine engine = new MiniEngine();
+        LiteEngine engine = new LiteEngine();
 
         // 1. 初始化数据：id=1, name=Jack, age=18
         Map<String, Object> initData = new HashMap<>();

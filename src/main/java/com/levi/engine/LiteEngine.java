@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * - 写入操作自动构建 Undo Log 版本链（rollPointer）以支持 MVCC 快照读
  * - 通过策略模式切换 RC 与 RR 的读视图生成策略
  */
-public class MiniEngine {
+public class LiteEngine {
     /**
      * 默认采用RR隔离级别
      */

@@ -9,9 +9,9 @@
 - 简化的事务管理器：发号器、活跃事务集合、ThreadLocal 上下文
 
 ## 代码结构
-- `com.mini.core`：Row、TransactionManager、ReadView
-- `com.mini.mvcc.strategy`：隔离级别策略接口与实现（RC、RR）
-- `com.mini.mvcc.engine`：MiniEngine（INSERT/SELECT/UPDATE/DELETE）
+- `com.levi.core`：Row、TransactionManager、ReadView
+- `com.levi.mvcc.strategy`：隔离级别策略接口与实现（RC、RR）
+- `com.levi.mvcc.engine`：LiteEngine（INSERT/SELECT/UPDATE/DELETE）
 - `src/test`：Undo Log 可视化与隔离级别单元测试
 
 ## 架构图
